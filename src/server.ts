@@ -22,6 +22,10 @@ app.use(cors())
 app.use('/static/', express.static('uploads'))
 //routes
 app.use('/images', imagesRoute)
+//404 error
+app.all('*', (_req, _res, next) => next(createError(404, 'Unable to find the requested resource.')))
+//errors handling
+app.use(isError)
 
 app.on('ready', () => {
   app.listen(config.PORT, () => log.info(`Server started on port ${config.PORT}`))
