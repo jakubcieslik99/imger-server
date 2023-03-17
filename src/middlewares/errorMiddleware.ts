@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { HttpError } from 'http-errors'
+import createError, { HttpError } from 'http-errors'
 import { config, log } from '../config/utilities'
 
 interface ErrorResAttributes {
@@ -14,6 +14,12 @@ class ErrorRes implements ErrorResAttributes {
 
 const errorHandler = (controller: Function) => (req: Request, res: Response, next: NextFunction) =>
   Promise.resolve(controller(req, res, next)).catch(next)
+
+const notFound = (req: Request, _res: Response, next: NextFunction) => {
+  if (req.path.split('/')[1] === 'static')
+    return next(createError(404, 'Unable to find or not yet downloaded the requested image.'))
+  return next(createError(404, 'Unable to find the requested resource.'))
+}
 
 const isError = (error: HttpError, _req: Request, res: Response, _next: NextFunction) => {
   //no status error handling
@@ -31,4 +37,4 @@ const isError = (error: HttpError, _req: Request, res: Response, _next: NextFunc
   return res.status(error.status).send(new ErrorRes(error.status, error.message || 'Unknown error.', new Date()))
 }
 
-export { errorHandler, isError }
+export { errorHandler, notFound, isError }

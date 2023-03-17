@@ -2,10 +2,9 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import helmet from 'helmet'
 import cors from 'cors'
-import createError from 'http-errors'
 import { config, log } from './config/utilities'
 import { databaseConnect } from './config/databaseConnect'
-import { isError } from './middlewares/errorMiddleware'
+import { notFound, isError } from './middlewares/errorMiddleware'
 import imagesRoute from './routes/imagesRoute'
 
 const app = express()
@@ -21,7 +20,7 @@ app.use('/static/', express.static('uploads'))
 //routes
 app.use('/images', imagesRoute)
 //404 error
-app.all('*', (_req, _res, next) => next(createError(404, 'Unable to find the requested resource.')))
+app.all('*', notFound)
 //errors handling
 app.use(isError)
 
