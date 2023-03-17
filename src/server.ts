@@ -9,11 +9,9 @@ import { isError } from './middlewares/errorMiddleware'
 import imagesRoute from './routes/imagesRoute'
 
 const app = express()
-app.set('trust proxy', `loopback, ${config.IP}`)
 databaseConnect(app)
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json({ limit: '1mb' }))
+app.use(express.json())
 app.use(cookieParser())
 app.use(helmet())
 app.use(cors())
