@@ -6,8 +6,16 @@ import { config } from '../config/utilities'
 import downloadQueue from '../functions/downloadQueue'
 
 //GET - /images/getImagesData
-const getImagesData = async (_req: Request, res: Response) => {
-  const images = await Image.findAll()
+const getImagesData = async (req: Request, res: Response) => {
+  const page = req.query.page ? parseInt(req.query.page as string) : 1
+  if (isNaN(page)) throw createError(400, 'Page number must be a number.')
+  if (page <= 0) throw createError(400, 'Page number must be greater than 0.')
+
+  const limit = req.query.limit ? parseInt(req.query.limit as string) : 10
+  if (isNaN(limit)) throw createError(400, 'Limit must be a number.')
+  if (limit <= 0) throw createError(400, 'Limit must be greater than 0.')
+
+  const images = await Image.findAll({ limit, offset: (page - 1) * limit })
 
   return res.status(200).send(images)
 }
