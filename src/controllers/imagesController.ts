@@ -23,7 +23,7 @@ const getImageData = async (req: Request, res: Response) => {
 //POST - /images/addImageToDownloads
 const addImageToDownloads = async (req: Request, res: Response) => {
   const { sourceUrl } = req.body
-  if (!sourceUrl) throw createError(400, 'URL with an image is required.')
+  if (!sourceUrl || typeof sourceUrl !== 'string') throw createError(400, 'URL with an image is required.')
 
   const sourceExtension = sourceUrl.split('.').pop()
   if (!sourceExtension) throw createError(400, 'URL with an image is required.')
@@ -32,7 +32,8 @@ const addImageToDownloads = async (req: Request, res: Response) => {
   const generatedId = uuidv4()
   const storedUrl = `${config.API_URL}/static/${generatedId}.${sourceExtension}`
   const addedDate = new Date()
-  //await Image.create({ id: generatedId, sourceUrl, storedUrl, addedDate })
+
+  downloadQueue.push({ generatedId, sourceUrl, sourceExtension, storedUrl, addedDate })
 
   return res.status(201).send({ storedUrl })
 }
