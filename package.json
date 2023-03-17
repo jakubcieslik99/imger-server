@@ -1,6 +1,6 @@
 {
   "name": "imger-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IMGer",
   "main": "server.js",
   "scripts": {

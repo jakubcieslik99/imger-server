@@ -9,7 +9,7 @@ const config = {
   PORT: process.env.PORT || 3001,
   API_URL: process.env.API_URL || 'http://localhost:3001',
   /*-------------------------------------------------------------------------------------*/
-  CONCURRENT_DOWNLOADS: 5,
+  CONCURRENT_DOWNLOADS: process.env.CONCURRENT_DOWNLOADS || 5,
   ALLOWED_EXTENSIONS: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'tiff', 'ico'],
 }
 

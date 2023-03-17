@@ -71,6 +71,8 @@ Express.js app as a backend (server). Database used in this project is SQLite.
 
 - `API_URL`
 
+- `CONCURRENT_DOWNLOADS`
+
 ## Languages
 
 🔤 Available API messages languages: **EN**
