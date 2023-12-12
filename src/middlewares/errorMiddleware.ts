@@ -33,7 +33,7 @@ const isError = (error: HttpError, _req: Request, res: Response, _next: NextFunc
     return res.status(500).send(new ErrorRes(500, 'Internal server error.', new Date()))
   }
   //any other client error handling
-  config.ENV !== 'prod' && log.error(`CLIENT - ${error.status}: ${error.message || 'Unknown error.'}`)
+  config.ENV !== 'production' && log.error(`CLIENT - ${error.status}: ${error.message || 'Unknown error.'}`)
   return res.status(error.status).send(new ErrorRes(error.status, error.message || 'Unknown error.', new Date()))
 }
 

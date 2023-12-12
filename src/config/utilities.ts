@@ -4,10 +4,10 @@ import logger from 'pino'
 dotenv.config()
 
 const config = {
-  ENV: process.env.ENV || 'dev',
+  ENV: process.env.ENV || 'development',
   /*-------------------------------------------------------------------------------------*/
-  PORT: process.env.PORT || 3001,
-  API_URL: process.env.API_URL || 'http://localhost:3001',
+  PORT: process.env.PORT || 3000,
+  API_URL: process.env.API_URL || 'http://localhost:3000',
   /*-------------------------------------------------------------------------------------*/
   CONCURRENT_DOWNLOADS: process.env.CONCURRENT_DOWNLOADS || 5,
   ALLOWED_EXTENSIONS: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'tiff', 'ico'],

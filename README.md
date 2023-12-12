@@ -58,7 +58,7 @@ Express.js app as a backend (server). Database used in this project is SQLite.
 
 ```bash
   npm install --omit=dev
-  npm run prod
+  npm run start
 ```
 
 ## Environment Variables
