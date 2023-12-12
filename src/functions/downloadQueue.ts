@@ -21,7 +21,7 @@ const downloadQueue = async.queue(async (task: task, callback) => {
 
     await Image.create({ id: generatedId, sourceUrl, storedUrl, addedDate, downloadedDate })
 
-    config.ENV !== 'prod' && log.info(`Image ${storedUrl} downloaded.`)
+    config.ENV !== 'production' && log.info(`Image ${storedUrl} downloaded.`)
     callback()
   } catch (error) {
     log.error(error)
