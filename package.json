@@ -1,6 +1,6 @@
 {
   "name": "imger-server",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "IMGer",
   "main": "index.js",
   "scripts": {
@@ -12,17 +12,17 @@
   "license": "UNLICENSED",
   "dependencies": {
     "async": "^3.2.5",
-    "axios": "^1.6.2",
+    "axios": "^1.6.5",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "helmet": "^6.2.0",
     "http-errors": "^2.0.0",
-    "pino": "^8.17.1",
-    "pino-pretty": "^10.3.0",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
     "sequelize": "^6.35.2",
-    "sqlite3": "^5.1.6",
+    "sqlite3": "^5.1.7",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/http-errors": "^2.0.4",
-    "@types/node": "^18.19.3",
+    "@types/node": "^18.19.4",
     "@types/uuid": "^9.0.7",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.2",
