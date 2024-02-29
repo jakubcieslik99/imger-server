@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { errorHandler } from '../middlewares/errorMiddleware'
-import { getImagesData, getImageData, addImageToDownloads } from '../controllers/imagesController'
+import { errorHandler } from '../middlewares/errorMiddleware.js'
+import { getImagesData, getImageData, addImageToDownloads } from '../controllers/imagesController.js'
 
 const router = Router()
 

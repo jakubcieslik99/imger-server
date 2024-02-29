@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import createError, { HttpError } from 'http-errors'
-import { config, log } from '../config/utilities'
+import { config, log } from '../config/utilities.js'
 
 interface ErrorResAttributes {
   status: number

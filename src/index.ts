@@ -2,10 +2,10 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import helmet from 'helmet'
 import cors from 'cors'
-import { config, log } from './config/utilities'
-import { databaseConnect } from './config/databaseConnect'
-import { notFound, isError } from './middlewares/errorMiddleware'
-import imagesRoute from './routes/imagesRoute'
+import { config, log } from './config/utilities.js'
+import { databaseConnect } from './config/databaseConnect.js'
+import { notFound, isError } from './middlewares/errorMiddleware.js'
+import imagesRoute from './routes/imagesRoute.js'
 
 const app = express()
 databaseConnect(app)

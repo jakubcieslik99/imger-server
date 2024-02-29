@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize'
-import { db } from '../config/databaseConnect'
+import { db } from '../config/databaseConnect.js'
 
 interface ImageAttributes {
   id: string
@@ -39,5 +39,5 @@ Image.init(
     sequelize: db,
     tableName: 'images',
     timestamps: false,
-  }
+  },
 )

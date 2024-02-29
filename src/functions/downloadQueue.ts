@@ -1,8 +1,8 @@
 import async from 'async'
 import axios from 'axios'
-import fileSave from './fileSave'
-import Image from '../models/Image'
-import { config, log } from '../config/utilities'
+import fileSave from './fileSave.js'
+import Image from '../models/Image.js'
+import { config, log } from '../config/utilities.js'
 
 type task = {
   generatedId: string

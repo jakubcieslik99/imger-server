@@ -13,7 +13,7 @@ const config = {
   ALLOWED_EXTENSIONS: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'tiff', 'ico'],
 }
 
-const log = logger({
+const log = logger.default({
   transport: {
     target: 'pino-pretty',
     options: {

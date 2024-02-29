@@ -1,6 +1,6 @@
 import { Application } from 'express'
 import { Sequelize } from 'sequelize'
-import { log } from './utilities'
+import { log } from './utilities.js'
 
 const db = new Sequelize('app', '', '', {
   storage: './database.sqlite',
