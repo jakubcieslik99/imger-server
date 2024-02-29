@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import createError from 'http-errors'
 import { v4 as uuidv4 } from 'uuid'
-import Image from '../models/Image'
-import { config } from '../config/utilities'
-import downloadQueue from '../functions/downloadQueue'
+import Image from '../models/Image.js'
+import { config } from '../config/utilities.js'
+import downloadQueue from '../functions/downloadQueue.js'
 
 //GET - /images/getImagesData
 const getImagesData = async (req: Request, res: Response) => {
