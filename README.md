@@ -35,13 +35,13 @@ Express.js app as a backend (server). Database used in this project is SQLite.
 
 ```bash
   cd imger-server
-  npm install
+  pnpm install
 ```
 
 - Run server app in development mode
 
 ```bash
-  npm run dev
+  pnpm run dev
 ```
 
 ## Deployment
@@ -51,24 +51,23 @@ Express.js app as a backend (server). Database used in this project is SQLite.
 - Transpile to production build
 
 ```bash
-  npm run build
+  pnpm run build
 ```
 
 - Run server app in production mode
 
 ```bash
-  npm install --omit=dev
-  npm run start
+  pnpm install --prod
+  pnpm run start
 ```
 
 ## Environment Variables
 
 ⚙️ To run server app, you will need to add the following environment variables to your .env file
 
-- `ENV`
+- `ENV` _(default already set for development)_
 
 - `PORT`
-
 - `API_URL`
 
 - `CONCURRENT_DOWNLOADS`
