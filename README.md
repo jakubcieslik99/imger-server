@@ -65,6 +65,8 @@ Express.js app as a backend (server). Database used in this project is SQLite.
 
 ⚙️ To run server app, you will need to add the following environment variables to your .env file
 
+Vars:
+
 - `ENV` _(default already set for development)_
 
 - `PORT`
