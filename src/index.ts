@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { ErrorRequestHandler } from 'express'
 import cookieParser from 'cookie-parser'
 import helmet from 'helmet'
 import cors from 'cors'
@@ -20,9 +20,9 @@ app.use('/static/', express.static('uploads'))
 //routes
 app.use('/images', imagesRoute)
 //404 error
-app.all('*', notFound)
+app.all('/{*splat}', notFound)
 //errors handling
-app.use(isError)
+app.use(isError as ErrorRequestHandler)
 
 app.on('ready', () => {
   app.listen(config.PORT, () => log.info(`Server started on port ${config.PORT}`))

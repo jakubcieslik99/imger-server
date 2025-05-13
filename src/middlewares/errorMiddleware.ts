@@ -25,16 +25,16 @@ const isError = (error: HttpError, _req: Request, res: Response, _next: NextFunc
   //no status error handling
   if (!error.status) {
     log.error(`INTERNAL - ${error.stack || error.message || 'Internal server error.'}`)
-    return res.status(500).send(new ErrorRes(500, 'Internal server error.', new Date()))
+    res.status(500).send(new ErrorRes(500, 'Internal server error.', new Date()))
   }
   //server error handling
   if (error.status >= 500) {
     log.error(`SERVER - ${error.status}: ${error.stack || error.message || 'Internal server error.'}`)
-    return res.status(500).send(new ErrorRes(500, 'Internal server error.', new Date()))
+    res.status(500).send(new ErrorRes(500, 'Internal server error.', new Date()))
   }
   //any other client error handling
   config.ENV !== 'production' && log.error(`CLIENT - ${error.status}: ${error.message || 'Unknown error.'}`)
-  return res.status(error.status).send(new ErrorRes(error.status, error.message || 'Unknown error.', new Date()))
+  res.status(error.status).send(new ErrorRes(error.status, error.message || 'Unknown error.', new Date()))
 }
 
 export { errorHandler, notFound, isError }
