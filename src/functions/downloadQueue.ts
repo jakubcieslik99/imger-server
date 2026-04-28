@@ -4,13 +4,7 @@ import fileSave from './fileSave.js'
 import Image from '../models/Image.js'
 import { config, log } from '../config/utilities.js'
 
-type task = {
-  generatedId: string
-  sourceUrl: string
-  sourceExtension: string
-  storedUrl: string
-  addedDate: Date
-}
+type task = { generatedId: string; sourceUrl: string; sourceExtension: string; storedUrl: string; addedDate: Date }
 
 const downloadQueue = async.queue(async (task: task, callback) => {
   try {

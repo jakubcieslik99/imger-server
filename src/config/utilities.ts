@@ -13,14 +13,8 @@ const config = {
   ALLOWED_EXTENSIONS: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'tiff', 'ico'],
 }
 
-const log = logger.default({
-  transport: {
-    target: 'pino-pretty',
-    options: {
-      translateTime: 'SYS:yyyy/mm/dd HH:MM:ss',
-      ignore: 'pid,hostname',
-    },
-  },
+const log = logger({
+  transport: { target: 'pino-pretty', options: { translateTime: 'SYS:yyyy/mm/dd HH:MM:ss', ignore: 'pid,hostname' } },
 })
 
 export { config, log }

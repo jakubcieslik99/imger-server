@@ -2,11 +2,7 @@ import { Application } from 'express'
 import { Sequelize } from 'sequelize'
 import { log } from './utilities.js'
 
-const db = new Sequelize('app', '', '', {
-  storage: './database.sqlite',
-  dialect: 'sqlite',
-  logging: false,
-})
+const db = new Sequelize('app', '', '', { storage: './database.sqlite', dialect: 'sqlite', logging: false })
 
 const databaseConnect = async (app: Application) => {
   try {

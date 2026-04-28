@@ -24,6 +24,4 @@ app.all('/{*splat}', notFound)
 //errors handling
 app.use(isError as ErrorRequestHandler)
 
-app.on('ready', () => {
-  app.listen(config.PORT, () => log.info(`Server started on port ${config.PORT}`))
-})
+app.listen(config.PORT, () => log.info(`Server started on port ${config.PORT}`))

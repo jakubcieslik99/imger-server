@@ -9,7 +9,15 @@ interface ErrorResAttributes {
 }
 
 class ErrorRes implements ErrorResAttributes {
-  constructor(public status: number, public message: string, public timestamp: Date) {}
+  public status: number
+  public message: string
+  public timestamp: Date
+
+  constructor(status: number, message: string, timestamp: Date) {
+    this.status = status
+    this.message = message
+    this.timestamp = timestamp
+  }
 }
 
 const errorHandler = (controller: Function) => (req: Request, res: Response, next: NextFunction) =>
